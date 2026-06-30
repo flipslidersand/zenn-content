@@ -1,0 +1,47 @@
+name: Weekly Stats
+
+on:
+  schedule:
+    - cron: "0 1 * * 1" # 月曜 10:00 JST
+  workflow_dispatch:
+
+jobs:
+  fetch-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch Zenn stats
+        id: stats
+        run: |
+          DATA=$(curl -s "https://zenn.dev/api/articles?username=flipslidersand&order=liked")
+          echo "$DATA" | python3 -c "
+          import json, sys
+          data = json.load(sys.stdin)
+          articles = data.get('articles', [])
+          total_likes = sum(a.get('liked_count', 0) for a in articles)
+          total_bookmarks = sum(a.get('bookmarks_count', 0) for a in articles)
+          print(f'記事数: {len(articles)}')
+          print(f'累計いいね: {total_likes}')
+          print(f'累計ブックマーク: {total_bookmarks}')
+          print()
+          for a in articles[:5]:
+            print(f\"- [{a['title']}](https://zenn.dev{a['path']}) 👍{a['liked_count']}\")
+          " > stats_output.txt
+          cat stats_output.txt
+          echo "body<<EOF" >> $GITHUB_OUTPUT
+          cat stats_output.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create stats issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = `${{ steps.stats.outputs.body }}`;
+            const today = new Date().toISOString().slice(0, 10);
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `📊 Zenn 週次統計 ${today}`,
+              body: `## 統計\n\n${body}\n\n---\n_自動生成_`,
+              labels: ['stats']
+            });

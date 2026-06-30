@@ -1,0 +1,21 @@
+{
+  "name": "zenn-content",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "preview": "zenn preview",
+    "new:article": "zenn new:article",
+    "new:book": "zenn new:book",
+    "lint": "textlint 'articles/**/*.md' 'books/**/*.md'"
+  },
+  "dependencies": {
+    "zenn-cli": "latest"
+  },
+  "devDependencies": {
+    "textlint": "^14.0.0",
+    "textlint-rule-preset-ja-technical-writing": "^9.0.0",
+    "textlint-rule-spellcheck-tech-word": "^5.0.0",
+    "textlint-rule-ja-no-redundant-expression": "^4.0.0",
+    "textlint-rule-no-dropping-the-ra": "^3.0.0"
+  }
+}

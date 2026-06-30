@@ -1,0 +1,48 @@
+name: Weekly Article Ideas
+
+on:
+  schedule:
+    - cron: "0 23 * * 0" # 日曜 08:00 JST
+  workflow_dispatch:
+
+jobs:
+  generate-ideas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: List existing articles
+        id: existing
+        run: |
+          echo "articles=$(ls articles/*.md 2>/dev/null | xargs -I{} basename {} .md | tr '\n' ',' | sed 's/,$//')" >> $GITHUB_OUTPUT
+
+      - name: Create idea tracking issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const existing = '${{ steps.existing.outputs.articles }}';
+            const today = new Date().toISOString().slice(0, 10);
+            const body = [
+              '## 今週の記事候補',
+              '',
+              '> 以下のテンプレートをコピーして記事ネタを追加してください',
+              '',
+              '### テンプレート',
+              '- [ ] **タイトル**: ',
+              '  - 対象読者: ',
+              '  - 推定文字数: ',
+              '  - 参考リソース: ',
+              '',
+              '---',
+              '',
+              `既存記事: ${existing || 'なし'}`,
+              '',
+              '_毎週日曜自動生成_'
+            ].join('\n');
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `💡 記事ネタ候補 ${today}`,
+              body,
+              labels: ['idea']
+            });
