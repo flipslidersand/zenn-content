@@ -1,0 +1,49 @@
+name: Generate Drafts
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # 毎日 09:00 JST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write # Vertex AI WIF 認証用
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - run: npm ci
+
+      - name: Authenticate to Google Cloud (Vertex / WIF)
+        if: vars.WIF_PROVIDER != ''
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.WIF_PROVIDER }}
+          service_account: ${{ vars.WIF_SA }}
+
+      - name: Set up gcloud
+        if: vars.WIF_PROVIDER != ''
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Generate drafts
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.5-flash-lite' }}
+          VERTEX_PROJECT: ${{ vars.VERTEX_PROJECT }}
+          VERTEX_REGION: ${{ vars.VERTEX_REGION || 'us-central1' }}
+        run: node scripts/generate-draft.mjs
+
+      - name: Commit drafts + DB
+        run: |
+          git config user.email "yukihanashopping0212@gmail.com"
+          git config user.name "flipslidersand"
+          git add drafts/ db/zenn.db
+          git diff --cached --quiet || git commit -m "draft: auto-generate drafts [automated]"
+          git push origin HEAD

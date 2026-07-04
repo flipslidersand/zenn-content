@@ -6,16 +6,22 @@
     "preview": "zenn preview",
     "new:article": "zenn new:article",
     "new:book": "zenn new:book",
-    "lint": "textlint 'articles/**/*.md' 'books/**/*.md'"
+    "lint": "textlint 'articles/**/*.md' 'books/**/*.md'",
+    "fetch-trends": "node scripts/fetch-trends.mjs",
+    "generate-drafts": "node scripts/generate-draft.mjs",
+    "seed-issues": "node scripts/seed-issues.mjs",
+    "purge": "node scripts/pipeline.mjs purge",
+    "pipeline": "node scripts/pipeline.mjs daily"
   },
   "dependencies": {
+    "better-sqlite3": "^12.11.1",
     "zenn-cli": "latest"
   },
   "devDependencies": {
     "textlint": "^14.0.0",
-    "textlint-rule-preset-ja-technical-writing": "^9.0.0",
-    "textlint-rule-spellcheck-tech-word": "^5.0.0",
     "textlint-rule-ja-no-redundant-expression": "^4.0.0",
-    "textlint-rule-no-dropping-the-ra": "^3.0.0"
+    "textlint-rule-no-dropping-the-ra": "^3.0.0",
+    "textlint-rule-preset-ja-technical-writing": "^9.0.0",
+    "textlint-rule-spellcheck-tech-word": "^5.0.0"
   }
 }

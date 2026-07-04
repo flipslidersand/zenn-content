@@ -1,0 +1,32 @@
+name: Fetch Trends
+
+on:
+  schedule:
+    - cron: "0 23 * * *" # 毎日 08:00 JST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - run: npm ci
+
+      - name: Fetch HN / Dev.to keywords
+        run: node scripts/fetch-trends.mjs
+
+      - name: Commit DB
+        run: |
+          git config user.email "yukihanashopping0212@gmail.com"
+          git config user.name "flipslidersand"
+          git add db/zenn.db
+          git diff --cached --quiet || git commit -m "chore(db): fetch trending keywords [automated]"
+          git push origin HEAD
