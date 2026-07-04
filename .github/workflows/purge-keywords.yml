@@ -1,0 +1,32 @@
+name: Purge Old Keywords
+
+on:
+  schedule:
+    - cron: "0 1 1 * *" # 毎月1日 10:00 JST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - run: npm ci
+
+      - name: Purge old keywords
+        run: node scripts/pipeline.mjs purge
+
+      - name: Commit DB
+        run: |
+          git config user.email "yukihanashopping0212@gmail.com"
+          git config user.name "flipslidersand"
+          git add db/zenn.db
+          git diff --cached --quiet || git commit -m "chore(db): purge old keywords [automated]"
+          git push origin HEAD
