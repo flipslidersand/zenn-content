@@ -21,19 +21,26 @@ const upsert = db.prepare(`
 `);
 
 const upsertMany = db.transaction((items) => {
-  for (const item of items) upsert.run(item);
+  for (const { source, keyword, category } of items)
+    upsert.run({ source, keyword, category });
 });
 
-const items = issues.map((i) => ({
-  source: 'zenn-issue',
-  keyword: i.title,
-  category: categorize(i.title),
-}));
+// "Zenn: " プレフィックスは Issue 管理用のラベルであり記事テーマではない。
+// 残すと LLM が「Zenn プラットフォームについての記事」と誤解する。
+const items = issues.map((i) => {
+  const keyword = i.title.replace(/^Zenn:\s*/, '');
+  return {
+    source: 'zenn-issue',
+    keyword,
+    category: categorize(keyword),
+    number: i.number,
+  };
+});
 
 upsertMany(items);
 db.close();
 
 for (const item of items) {
-  process.stdout.write(`#${issues.find(i => i.title === item.keyword)?.number} [${item.category}] ${item.keyword}\n`);
+  process.stdout.write(`#${item.number} [${item.category}] ${item.keyword}\n`);
 }
 process.stdout.write(`\nTotal: ${items.length} keywords\n`);
