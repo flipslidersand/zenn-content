@@ -3,7 +3,7 @@ title: "勉強したのに、実装できない。その理由"
 emoji: "📚"
 type: "idea"
 topics: ["キャリア", "学習", "プログラミング", "ポエム"]
-published: true
+published: false
 ---
 
 本を読んだ。チュートリアルを終えた。動画も見た。

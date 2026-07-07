@@ -3,7 +3,7 @@ title: "ドキュメントを書かない開発者の話"
 emoji: "📝"
 type: "idea"
 topics: ["プログラミング", "チーム開発", "キャリア", "ポエム"]
-published: true
+published: false
 ---
 
 「コードを見れば分かる」

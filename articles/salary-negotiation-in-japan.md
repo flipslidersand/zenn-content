@@ -3,7 +3,7 @@ title: "給料交渉できない人の話"
 emoji: "💴"
 type: "idea"
 topics: ["キャリア", "転職", "給与", "ポエム"]
-published: true
+published: false
 ---
 
 「給料が上がらない」という話はよく聞きます。

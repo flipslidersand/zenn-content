@@ -3,7 +3,7 @@ title: "個人開発が続かない人の共通点"
 emoji: "🛠️"
 type: "idea"
 topics: ["個人開発", "キャリア", "生産性", "ポエム"]
-published: true
+published: false
 ---
 
 「個人でサービスを作りたい」
