@@ -1,0 +1,33 @@
+name: Daily Zenn deploy trigger
+
+# Zenn の1日あたり公開数上限で弾かれた記事を毎日少しずつ消化する。
+# published: true の記事数が Zenn 公開数より多い日だけ空コミットを push し、
+# Zenn の再デプロイをトリガーする。バックログが無ければ何もしない。
+
+on:
+  schedule:
+    - cron: "10 0 * * *" # 09:10 JST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Push empty commit if publish backlog remains
+        run: |
+          LOCAL=$(grep -l "published: true" articles/*.md | wc -l)
+          REMOTE=$(curl -s "https://zenn.dev/api/articles?username=flipslidersand&count=100" | jq '.articles | length')
+          echo "local published=$LOCAL / zenn live=$REMOTE"
+          if [ "$LOCAL" -gt "$REMOTE" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit --allow-empty -m "chore: trigger zenn deploy (backlog $((LOCAL - REMOTE)))"
+            git push
+          else
+            echo "backlog empty — skip"
+          fi
