@@ -2,7 +2,7 @@
 title: "Goを使ってみよう！パソコン苦手でも安心、Go言語の始め方"
 emoji: "💡"
 type: "tech"
-topics: ["go"]
+topics: ["go", "初心者", "プログラミング入門"]
 published: false
 ---
 

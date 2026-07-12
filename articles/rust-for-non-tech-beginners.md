@@ -2,7 +2,7 @@
 title: "Rust（ラスト）を始めてみた！ パソコン苦手でも大丈夫なワケ"
 emoji: "🦀"
 type: "tech"
-topics: ["rust"]
+topics: ["rust", "初心者", "プログラミング入門"]
 published: false
 ---
 

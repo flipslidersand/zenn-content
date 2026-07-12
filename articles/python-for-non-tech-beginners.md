@@ -2,7 +2,7 @@
 title: "Pythonってなに？ゼロから始めるプログラミング体験（難しく考えなくてOK！）"
 emoji: "🐍"
 type: "tech"
-topics: ["python"]
+topics: ["python", "初心者", "プログラミング入門"]
 published: false
 ---
 
