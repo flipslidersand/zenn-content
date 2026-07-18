@@ -1,0 +1,84 @@
+# 記事別 30日 Like 予測
+# 根拠: 新規アカウント・フォロワーほぼゼロ・X 未展開
+# 予測範囲: low（下限）/ high（上限）/ note（根拠）
+
+rust-beginners-guide-setup:
+  published: "2026-07-02"
+  type: tech
+  predicted_likes_7d_low: 3
+  predicted_likes_7d_high: 15
+  predicted_likes_30d_low: 8
+  predicted_likes_30d_high: 30
+  note: "Rust入門は需要安定・検索流入しやすい"
+
+execution-over-perfection:
+  published: "2026-07-05"
+  type: idea
+  predicted_likes_7d_low: 0
+  predicted_likes_7d_high: 5
+  predicted_likes_30d_low: 2
+  predicted_likes_30d_high: 10
+  note: "テーマ一般的・タイトル競合多・X未展開で下限寄り"
+
+facing-people-who-resist-change:
+  published: "2026-07-05"
+  type: idea
+  predicted_likes_7d_low: 0
+  predicted_likes_7d_high: 5
+  predicted_likes_30d_low: 2
+  predicted_likes_30d_high: 10
+  note: "主張は明確だが検索流入しにくいテーマ"
+
+action-over-knowledge:
+  published: "2026-07-07"
+  type: idea
+  predicted_likes_7d_low: 1
+  predicted_likes_7d_high: 8
+  predicted_likes_30d_low: 3
+  predicted_likes_30d_high: 15
+  note: "あるある共感型・タイトルが具体的"
+
+ai-usage-gap:
+  published: "2026-07-09"
+  type: idea
+  predicted_likes_7d_low: 1
+  predicted_likes_7d_high: 10
+  predicted_likes_30d_low: 3
+  predicted_likes_30d_high: 20
+  note: "AI格差は旬テーマ・共感型"
+
+cant-deny-what-works:
+  published: "2026-07-11"
+  type: idea
+  predicted_likes_7d_low: 0
+  predicted_likes_7d_high: 5
+  predicted_likes_30d_low: 1
+  predicted_likes_30d_high: 10
+  note: "検証文化系・読者層が限定的"
+
+ai-for-non-tech-beginners:
+  published: "2026-07-12"
+  type: idea
+  predicted_likes_7d_low: 1
+  predicted_likes_7d_high: 10
+  predicted_likes_30d_low: 3
+  predicted_likes_30d_high: 20
+  note: "初心者向けAI解説・需要高いが競合も多い"
+
+ai-learning-roadmap:
+  published: "2026-07-13"
+  type: idea
+  predicted_likes_7d_low: 1
+  predicted_likes_7d_high: 10
+  predicted_likes_30d_low: 3
+  predicted_likes_30d_high: 20
+  note: "ロードマップ系は保存されやすい"
+
+ai-native-dev-flow-4months:
+  published: "2026-07-18"
+  type: tech
+  predicted_likes_7d_low: 5
+  predicted_likes_7d_high: 30
+  predicted_likes_30d_low: 15
+  predicted_likes_30d_high: 60
+  note: "実績データ付き実装報告・Claude Code需要高・最有力"
