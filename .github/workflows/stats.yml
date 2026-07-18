@@ -8,40 +8,68 @@ on:
 jobs:
   fetch-stats:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch Zenn stats
-        id: stats
+
+      - name: Fetch Zenn API
         run: |
-          DATA=$(curl -s "https://zenn.dev/api/articles?username=flipslidersand&order=liked")
-          echo "$DATA" | python3 -c "
-          import json, sys
-          data = json.load(sys.stdin)
-          articles = data.get('articles', [])
-          total_likes = sum(a.get('liked_count', 0) for a in articles)
-          total_bookmarks = sum(a.get('bookmarks_count', 0) for a in articles)
-          print(f'記事数: {len(articles)}')
-          print(f'累計いいね: {total_likes}')
-          print(f'累計ブックマーク: {total_bookmarks}')
-          print()
-          for a in articles[:5]:
-            print(f\"- [{a['title']}](https://zenn.dev{a['path']}) 👍{a['liked_count']}\")
-          " > stats_output.txt
-          cat stats_output.txt
+          curl -s "https://zenn.dev/api/articles?username=flipslidersand&order=liked" \
+            > /tmp/zenn_data.json
+
+      - name: Save weekly snapshot
+        run: |
+          TODAY=$(date +%Y-%m-%d)
+          python3 - <<'EOF'
+          import json, datetime
+          from pathlib import Path
+
+          data = json.loads(Path('/tmp/zenn_data.json').read_text())
+          articles = sorted(data.get('articles', []), key=lambda a: a['published_at'])
+          today = datetime.date.today().isoformat()
+
+          lines = [f'date: {today}', 'articles:']
+          for a in articles:
+              lines += [
+                  f"  {a['slug']}:",
+                  f"    title: {json.dumps(a['title'], ensure_ascii=False)}",
+                  f"    published: {a['published_at'][:10]}",
+                  f"    likes: {a.get('liked_count', 0)}",
+                  f"    bookmarked: {a.get('bookmarked_count', 0)}",
+              ]
+          Path(f'stats/{today}.yml').write_text('\n'.join(lines) + '\n')
+          print(f'Saved stats/{today}.yml ({len(articles)} articles)')
+          EOF
+
+      - name: Commit snapshot
+        run: |
+          TODAY=$(date +%Y-%m-%d)
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add stats/${TODAY}.yml
+          git diff --staged --quiet || git commit -m "chore(stats): weekly snapshot ${TODAY}"
+          git push
+
+      - name: Build report
+        id: report
+        run: |
+          BODY=$(cat /tmp/zenn_data.json | python3 scripts/stats_report.py)
           echo "body<<EOF" >> $GITHUB_OUTPUT
-          cat stats_output.txt >> $GITHUB_OUTPUT
+          echo "$BODY" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Create stats issue
         uses: actions/github-script@v7
         with:
           script: |
-            const body = `${{ steps.stats.outputs.body }}`;
+            const body = `${{ steps.report.outputs.body }}`;
             const today = new Date().toISOString().slice(0, 10);
             await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: `📊 Zenn 週次統計 ${today}`,
-              body: `## 統計\n\n${body}\n\n---\n_自動生成_`,
+              body: `## 実測 vs 予測\n\n${body}\n\n---\n_自動生成 ([#14](../../issues/14))_`,
               labels: ['stats']
             });
