@@ -1,0 +1,52 @@
+date: 2026-07-20
+articles:
+  rust-beginners-guide-setup:
+    title: "Rust初心者のための入門ガイド：環境構築から基本プログラム作成まで"
+    published: 2026-07-02
+    likes: 3
+    bookmarked: 1
+  execution-over-perfection:
+    title: "完璧さより実行。アジャイル時代に求められる小さく試す力"
+    published: 2026-07-05
+    likes: 0
+    bookmarked: 0
+  facing-people-who-resist-change:
+    title: "変化を受け入れない人に、どう向き合うか"
+    published: 2026-07-05
+    likes: 0
+    bookmarked: 0
+  action-over-knowledge:
+    title: "知識がない ≠ 罪。実行しないことが罪になる時代へ"
+    published: 2026-07-07
+    likes: 0
+    bookmarked: 0
+  ai-usage-gap:
+    title: "AIを利用できる人、できない人の違い"
+    published: 2026-07-09
+    likes: 1
+    bookmarked: 0
+  cant-deny-what-works:
+    title: "新しいやり方を検証して、否定できなくなること"
+    published: 2026-07-11
+    likes: 0
+    bookmarked: 0
+  ai-for-non-tech-beginners:
+    title: "AIってなに？（パソコン苦手でも大丈夫！）"
+    published: 2026-07-12
+    likes: 1
+    bookmarked: 0
+  ai-learning-roadmap:
+    title: "AI学習ロードマップ：未来を切り拓く知識とスキルを身につけよう"
+    published: 2026-07-13
+    likes: 1
+    bookmarked: 0
+  ai-native-dev-flow-4months:
+    title: "AI-native 開発フロー — 4ヶ月で153PR・本番稼働した実測データ"
+    published: 2026-07-18
+    likes: 1
+    bookmarked: 0
+  ai-role-division:
+    title: "AIエンジニア必読 — 実装はAIに、判断は人間に。役割分担の設計"
+    published: 2026-07-20
+    likes: 1
+    bookmarked: 0
