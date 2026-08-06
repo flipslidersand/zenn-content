@@ -3,7 +3,7 @@ title: "分散 Discord Bot のレース条件を追った話"
 emoji: "🤖"
 type: "tech"
 topics: ["discord", "python", "asyncio", "concurrency"]
-published: false
+published: true
 ---
 
 ## TL;DR
