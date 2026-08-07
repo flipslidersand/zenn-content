@@ -13,6 +13,11 @@ raw = json.load(open(os.path.join(OUT, "development-activity-raw.json")))
 s = raw["summary"]
 dq = raw["data_quality"]
 
+N_DEEP = s["repositories_deep_analyzed"]
+N_GH = sum(1 for r in raw["repositories"] if r.get("pull_requests") or r.get("issues") or r.get("ci_cd"))
+# categories that have repos but no deep-analyzed (git) coverage
+_gap = sorted(k for k, v in s["activity_by_category"].items() if v["repos"] and not v["deep_analyzed"])
+
 def fmt(n):
     return f"{n:,}" if isinstance(n, int) else str(n)
 
@@ -41,7 +46,8 @@ w(f"Between {raw['analysis_period']['start']} and {raw['analysis_period']['end']
   f"within the window and **{s['archived_repositories']}** are archived "
   f"({s['public_repositories']} public / {s['private_repositories']} private).")
 w()
-w(f"Eight repositories spanning several domains were cloned and analysed in depth. Across those eight, the "
+w(f"**{N_DEEP} repositories** spanning several domains were cloned and analysed in depth at the Git level "
+  f"(of which {N_GH} also have GitHub PR/Issue/CI coverage). Across the {N_DEEP}, the "
   f"subject authored **{fmt(s['author_commits_deep'])} commits** on default branches over "
   f"**{s['total_active_days_union_deep']} active days**, with a longest unbroken run of "
   f"**{s['longest_active_streak_deep']} consecutive active days** (median "
@@ -49,24 +55,25 @@ w(f"Eight repositories spanning several domains were cloned and analysed in dept
 w()
 w(f"The end-to-end delivery path is observable in the data: **{fmt(s['total_issues_created_deep'])} issues**, "
   f"**{fmt(s['total_prs_created_deep'])} pull requests created / {fmt(s['total_prs_merged_deep'])} merged**, and "
-  f"**{fmt(s['total_workflow_runs_deep'])} GitHub Actions workflow runs** across the eight repositories. Effective "
-  f"code churn (generated files and lockfiles excluded) is "
+  f"**{fmt(s['total_workflow_runs_deep'])} GitHub Actions workflow runs** across the {N_GH} repositories with "
+  f"GitHub API coverage. Effective "
+  f"code churn (generated files and lockfiles excluded, over all {N_DEEP} Git-analyzed repos) is "
   f"**+{fmt(s['effective_lines_added_deep'])} / −{fmt(s['effective_lines_deleted_deep'])} lines**.")
 w()
 
 # ---- Activity Timeline ----
 w("## Activity Timeline")
 w()
-w("Monthly activity across the eight deep-analyzed repositories (commits and effective LOC from Git; "
-  "PRs from the GitHub API). Issue counts are reported as totals in *Delivery Metrics* rather than monthly "
-  "(see *Limitations*).")
+w(f"Monthly activity across the {N_DEEP} deep-analyzed repositories (commits and effective LOC from Git over all "
+  f"{N_DEEP}; PRs from the GitHub API over the {N_GH} API-covered repos). Issue counts are reported as totals in "
+  "*Delivery Metrics* rather than monthly (see *Limitations*).")
 w()
 w("| Month | Commits | PRs created | PRs merged | Effective LOC (Δ) |")
 w("|-------|--------:|------------:|-----------:|------------------:|")
 for m, v in raw["monthly_activity"].items():
     w(f"| {m} | {v['commits']} | {v['prs_created']} | {v['prs_merged']} | {fmt(v['effective_loc'])} |")
 w()
-w(f"Continuity indicators (union of the eight repositories): **{s['total_active_days_union_deep']} active days**, "
+w(f"Continuity indicators (union of the {N_DEEP} repositories): **{s['total_active_days_union_deep']} active days**, "
   f"longest streak **{s['longest_active_streak_deep']} days**, median **{s['median_commits_per_active_day_deep']} "
   f"commits per active day**. Attributed activity spans {min(raw['monthly_activity'])} through "
   f"{max(raw['monthly_activity'])}.")
@@ -119,10 +126,15 @@ w("|----------|-------------:|--------------:|----------------------:|----------
 for k, v in s["activity_by_category"].items():
     w(f"| {k} | {v['repos']} | {v['deep_analyzed']} | {fmt(v['author_commits'])} | {fmt(v['effective_loc'])} |")
 w()
+_covered = sorted(k for k, v in s["activity_by_category"].items() if v["deep_analyzed"])
 w("The inventory spans product, frontend, backend, infrastructure, data-pipeline, AI/LLM, automation, "
-  "documentation and experiment repositories. Deep churn data is concentrated in infrastructure, documentation, "
-  "automation, backend, frontend and product; **AI/LLM and data-pipeline repositories are present in the "
-  "inventory but not in the deep-analyzed set** (see *Limitations*).")
+  "documentation and experiment repositories. Deep (Git) churn data is present for categories: "
+  + ", ".join(_covered) + ".")
+if _gap:
+    w("")
+    w("Categories present in the inventory but **not yet in the deep-analyzed set** (their repositories are "
+      "private and could not be attached for cloning during collection): **" + ", ".join(_gap) +
+      "** (see *Limitations*).")
 w()
 
 # ---- Technology Breadth ----
@@ -144,8 +156,8 @@ w()
 # ---- Representative Repository Activity ----
 w("## Representative Repository Activity")
 w()
-w("Four repositories illustrate the range of the deep-analyzed set. Figures are default-branch, author-attributed, "
-  "within the window.")
+w("The most active repositories (by author commits) illustrate the range of the deep-analyzed set. Figures are "
+  "default-branch, author-attributed, within the window.")
 w()
 reps = [r for r in raw["repositories"] if r["deep_analyzed"]]
 reps = sorted(reps, key=lambda r: -(r["git"]["author_commits"]))[:5]

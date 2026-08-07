@@ -308,19 +308,20 @@ summary = {
 # ---------- collected/obtained/not-obtained ledger ----------
 data_quality = {
     "obtained": [
-        "Per-repo Git commit history (default branch HEAD, no-merges) for 8 deep repos, full clones",
+        f"Per-repo Git commit history (default branch HEAD, no-merges) for {len(deep_set)} deep repos, full clones",
         "Author-attributed commits, active days, streaks (author-date, Asia/Tokyo)",
         "Raw and effective LOC churn with documented exclusion ruleset",
         "Conventional-commit type classification",
         "Language + tech-domain breakdown from file extensions/paths",
         "Contributor attribution incl. AI-agent-authored + AI co-authored commits",
         "PR created/merged/closed-unmerged/open + median lead time (created->merged), by month",
-        "Issue totals (created/open/closed) per deep repo",
-        "GitHub Actions workflow-run totals per deep repo",
-        "Full repository inventory (100 repos: visibility, archived, fork, last push)",
+        "Issue totals (created/open/closed) per GitHub-attached repo",
+        "GitHub Actions workflow-run totals per GitHub-attached repo",
+        f"Full repository inventory ({len(repo_records)} repos: visibility, archived, fork, last push)",
     ],
     "not_obtained": [
-        "default_branch / first_commit / churn for non-deep repos (not cloned)",
+        f"Git churn for {sum(1 for r in repo_records if not r['deep_analyzed'])} repositories (private; add_repo attachment was gated by the environment, so they could not be cloned)",
+        f"GitHub PR/Issue/CI for the {sum(1 for r in repo_records if not (r.get('pull_requests') or r.get('issues') or r.get('ci_cd')))} repositories not attached via add_repo",
         "PR median_time_to_first_review (per-PR review enumeration not collected)",
         "Issue median_close_time and issue monthly series for high-volume repos (240/581 issues not fully paginated)",
         "Workflow-run success/failure split (only non-representative recent 30-run sample available)",
@@ -331,7 +332,10 @@ data_quality = {
         "PR list 'merged' boolean unreliable; merge determined by non-null merged_at.",
         "Commits counted on the default branch (git log HEAD, no-merges); work living only on unmerged branches is intentionally excluded (conservative basis).",
         "Person identity merged conservatively across the subject's configured git emails and name variants (incl. a name typo); see identity.json and per-repo person_identity_variants.",
-        "Deep-analysis set is a documented subset (8 of 100) selected by activity + domain coverage; expansion blocked by per-repo access-approval limits during collection. AI/LLM and data-pipeline categories are represented in the inventory but not in the deep churn set.",
+        f"Deep-analysis (Git) set is {len(deep_set)} of {len(repo_records)} repositories: all reachable ones "
+        "(public repos clone freely; private repos require add_repo attachment, which the environment gated during "
+        "collection). GitHub PR/Issue/CI metrics cover the subset of those that were attached. Categories present in "
+        "the inventory but not in the Git-deep set are private-only and could not be cloned.",
         "A secondary GitHub account was observed authoring 2 issues in one public repo; not merged into the person identity (unverified).",
     ],
     "changed_collection_logic": [
