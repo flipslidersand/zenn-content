@@ -1,0 +1,5 @@
+{
+  "_note": "Copy to identity.json (gitignored) and fill in the subject's git author identities.",
+  "person_emails": ["author@example.com", "12345+handle@users.noreply.github.com"],
+  "person_names": ["handle"]
+}

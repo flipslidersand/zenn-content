@@ -1,0 +1,2329 @@
+{
+  "report": "Development Activity Report — anonymized (external-shareable)",
+  "analysis_period": {
+    "start": "2026-04-01",
+    "end": "2026-08-07"
+  },
+  "collected_at": "2026-08-07T13:30:00+09:00",
+  "timezone": "Asia/Tokyo",
+  "subject_identity": "redacted",
+  "methodology": {
+    "commit_scope": "git log --all --no-merges; author date; Asia/Tokyo",
+    "effective_loc_exclusion_rules": {
+      "path_substrings": [
+        "node_modules/",
+        "vendor/",
+        "dist/",
+        "build/",
+        "/out/",
+        ".next/",
+        "coverage/",
+        "target/debug/",
+        "target/release/",
+        ".venv/",
+        "venv/",
+        "__pycache__/",
+        ".terraform/",
+        "site-packages/"
+      ],
+      "basenames": [
+        "Cargo.lock",
+        "Gemfile.lock",
+        "Pipfile.lock",
+        "composer.lock",
+        "flake.lock",
+        "go.sum",
+        "npm-shrinkwrap.json",
+        "package-lock.json",
+        "pnpm-lock.yaml",
+        "poetry.lock",
+        "yarn.lock"
+      ],
+      "suffixes": [
+        ".min.js",
+        ".min.css",
+        ".map",
+        ".lock",
+        ".snap",
+        ".pb.go",
+        "_pb2.py",
+        "_pb2_grpc.py",
+        ".pb.cc",
+        ".pb.h",
+        ".generated.ts",
+        ".generated.js",
+        ".g.dart"
+      ],
+      "generated_regex": [
+        "/migrations?/.*\\.(sql|py|rb|js|ts)$",
+        ".*\\.(dump|sqlite|db|bak)$",
+        "(^|/)dist(/|$)"
+      ],
+      "binary_files": "excluded from effective LOC (git numstat reports '-')",
+      "note": "raw_* counts everything git tracked; effective_* removes the above."
+    },
+    "deep_analyzed_repos_count": 8,
+    "deep_repo_selection": "Most active + domain-spanning subset of accessible non-archived repos."
+  },
+  "summary": {
+    "total_repositories": 100,
+    "repositories_active_in_window": 98,
+    "repositories_deep_analyzed": 8,
+    "archived_repositories": 24,
+    "public_repositories": 22,
+    "private_repositories": 78,
+    "deep_analyzed_scope_note": "Commit/LOC/PR/issue/CI totals below are summed over the 8 deep-analyzed repositories only. Inventory counts cover all 100 repositories.",
+    "total_commits_in_window_deep": 784,
+    "author_commits_deep": 647,
+    "ai_agent_authored_commits_deep": 89,
+    "ai_coauthored_person_commits_deep": 385,
+    "total_active_days_union_deep": 62,
+    "longest_active_streak_deep": 53,
+    "median_commits_per_active_day_deep": 7.0,
+    "mean_commits_per_active_day_deep": 10.44,
+    "total_prs_created_deep": 313,
+    "total_prs_merged_deep": 239,
+    "total_issues_created_deep": 919,
+    "total_issues_closed_deep": 765,
+    "total_deployments": null,
+    "total_workflow_runs_deep": 5039,
+    "raw_lines_added_deep": 205505,
+    "raw_lines_deleted_deep": 25713,
+    "effective_lines_added_deep": 173231,
+    "effective_lines_deleted_deep": 11923,
+    "excluded_lines_added_deep": 32274,
+    "excluded_lines_deleted_deep": 13790,
+    "top_languages": [
+      {
+        "language": "Markdown",
+        "effective_churn": 59601
+      },
+      {
+        "language": "YAML",
+        "effective_churn": 47922
+      },
+      {
+        "language": "Python",
+        "effective_churn": 45689
+      },
+      {
+        "language": "Shell",
+        "effective_churn": 9598
+      },
+      {
+        "language": "JavaScript",
+        "effective_churn": 8239
+      },
+      {
+        "language": "JSON",
+        "effective_churn": 6773
+      },
+      {
+        "language": "Other",
+        "effective_churn": 3212
+      },
+      {
+        "language": "HTML",
+        "effective_churn": 1755
+      },
+      {
+        "language": "TypeScript",
+        "effective_churn": 765
+      },
+      {
+        "language": "HCL/Terraform",
+        "effective_churn": 654
+      },
+      {
+        "language": "Jupyter",
+        "effective_churn": 283
+      },
+      {
+        "language": "TOML",
+        "effective_churn": 209
+      }
+    ],
+    "activity_by_category": {
+      "ai_llm": {
+        "repos": 8,
+        "deep_analyzed": 0,
+        "author_commits": 0,
+        "effective_loc": 0
+      },
+      "automation": {
+        "repos": 16,
+        "deep_analyzed": 1,
+        "author_commits": 31,
+        "effective_loc": 9185
+      },
+      "backend": {
+        "repos": 8,
+        "deep_analyzed": 1,
+        "author_commits": 22,
+        "effective_loc": 8682
+      },
+      "data_pipeline": {
+        "repos": 10,
+        "deep_analyzed": 0,
+        "author_commits": 0,
+        "effective_loc": 0
+      },
+      "documentation": {
+        "repos": 8,
+        "deep_analyzed": 2,
+        "author_commits": 148,
+        "effective_loc": 24627
+      },
+      "experiment": {
+        "repos": 5,
+        "deep_analyzed": 0,
+        "author_commits": 0,
+        "effective_loc": 0
+      },
+      "frontend": {
+        "repos": 4,
+        "deep_analyzed": 1,
+        "author_commits": 11,
+        "effective_loc": 785
+      },
+      "infrastructure": {
+        "repos": 9,
+        "deep_analyzed": 2,
+        "author_commits": 430,
+        "effective_loc": 140643
+      },
+      "other": {
+        "repos": 28,
+        "deep_analyzed": 0,
+        "author_commits": 0,
+        "effective_loc": 0
+      },
+      "product": {
+        "repos": 4,
+        "deep_analyzed": 1,
+        "author_commits": 5,
+        "effective_loc": 1232
+      }
+    }
+  },
+  "monthly_activity": {
+    "2026-04": {
+      "commits": 4,
+      "prs_created": 0,
+      "prs_merged": 0,
+      "effective_loc": 712
+    },
+    "2026-05": {
+      "commits": 28,
+      "prs_created": 0,
+      "prs_merged": 0,
+      "effective_loc": 5380
+    },
+    "2026-06": {
+      "commits": 144,
+      "prs_created": 43,
+      "prs_merged": 27,
+      "effective_loc": 55522
+    },
+    "2026-07": {
+      "commits": 330,
+      "prs_created": 179,
+      "prs_merged": 125,
+      "effective_loc": 63118
+    },
+    "2026-08": {
+      "commits": 141,
+      "prs_created": 91,
+      "prs_merged": 87,
+      "effective_loc": 60422
+    }
+  },
+  "weekly_activity": {
+    "2026-W16": {
+      "commits": 4,
+      "prs_created": 0,
+      "prs_merged": 0,
+      "effective_loc": 712
+    },
+    "2026-W18": {
+      "commits": 2,
+      "prs_created": 0,
+      "prs_merged": 0,
+      "effective_loc": 946
+    },
+    "2026-W19": {
+      "commits": 14,
+      "prs_created": 0,
+      "prs_merged": 0,
+      "effective_loc": 3506
+    },
+    "2026-W20": {
+      "commits": 12,
+      "prs_created": 0,
+      "prs_merged": 0,
+      "effective_loc": 928
+    },
+    "2026-W24": {
+      "commits": 8,
+      "prs_created": 3,
+      "prs_merged": 2,
+      "effective_loc": 1875
+    },
+    "2026-W25": {
+      "commits": 34,
+      "prs_created": 3,
+      "prs_merged": 2,
+      "effective_loc": 8387
+    },
+    "2026-W26": {
+      "commits": 63,
+      "prs_created": 12,
+      "prs_merged": 9,
+      "effective_loc": 31964
+    },
+    "2026-W27": {
+      "commits": 142,
+      "prs_created": 75,
+      "prs_merged": 59,
+      "effective_loc": 35232
+    },
+    "2026-W28": {
+      "commits": 75,
+      "prs_created": 18,
+      "prs_merged": 19,
+      "effective_loc": 10821
+    },
+    "2026-W29": {
+      "commits": 67,
+      "prs_created": 69,
+      "prs_merged": 47,
+      "effective_loc": 16826
+    },
+    "2026-W30": {
+      "commits": 57,
+      "prs_created": 30,
+      "prs_merged": 7,
+      "effective_loc": 11368
+    },
+    "2026-W31": {
+      "commits": 88,
+      "prs_created": 58,
+      "prs_merged": 24,
+      "effective_loc": 41996
+    },
+    "2026-W32": {
+      "commits": 81,
+      "prs_created": 45,
+      "prs_merged": 70,
+      "effective_loc": 20593
+    }
+  },
+  "repositories": [
+    {
+      "repo_label": "Repository-03",
+      "category": "documentation",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": true,
+      "git": {
+        "total_commits": 169,
+        "author_commits": 137,
+        "active_days": 36,
+        "longest_active_streak": 34,
+        "median_commits_per_active_day": 2.0,
+        "raw_lines_added": 24694,
+        "raw_lines_deleted": 603,
+        "effective_lines_added": 17510,
+        "effective_lines_deleted": 599,
+        "excluded_lines_added": 7184,
+        "excluded_lines_deleted": 4,
+        "files_changed": 204,
+        "commit_types": {
+          "feat": 30,
+          "other": 54,
+          "chore": 46,
+          "revert": 1,
+          "fix": 5,
+          "test": 1
+        },
+        "ai_agent_authored_commits_in_window": 0,
+        "ai_coauthored_person_commits_in_window": 25,
+        "first_commit_at_window": "2026-07-01T04:45:04+09:00",
+        "last_commit_at_window": "2026-08-06T23:39:46+09:00"
+      },
+      "languages": {
+        "Markdown": {
+          "effective_lines_added": 15893,
+          "effective_lines_deleted": 471,
+          "files_changed": 176
+        },
+        "JavaScript": {
+          "effective_lines_added": 745,
+          "effective_lines_deleted": 61,
+          "files_changed": 7
+        },
+        "YAML": {
+          "effective_lines_added": 611,
+          "effective_lines_deleted": 63,
+          "files_changed": 11
+        },
+        "Other": {
+          "effective_lines_added": 132,
+          "effective_lines_deleted": 0,
+          "files_changed": 6
+        },
+        "Python": {
+          "effective_lines_added": 97,
+          "effective_lines_deleted": 0,
+          "files_changed": 1
+        },
+        "JSON": {
+          "effective_lines_added": 32,
+          "effective_lines_deleted": 4,
+          "files_changed": 1
+        }
+      },
+      "tech_domains": {
+        "frontend": {
+          "effective_lines_added": 688,
+          "effective_lines_deleted": 61,
+          "files_changed": 6
+        },
+        "AI / LLM": {
+          "effective_lines_added": 442,
+          "effective_lines_deleted": 0,
+          "files_changed": 3
+        },
+        "CI/CD": {
+          "effective_lines_added": 323,
+          "effective_lines_deleted": 20,
+          "files_changed": 7
+        },
+        "backend": {
+          "effective_lines_added": 97,
+          "effective_lines_deleted": 0,
+          "files_changed": 1
+        },
+        "data pipeline": {
+          "effective_lines_added": 57,
+          "effective_lines_deleted": 0,
+          "files_changed": 1
+        }
+      },
+      "contributor_attribution": {
+        "contributor_count": 4,
+        "author_commits": 137,
+        "repository_total_commits_in_window": 169,
+        "author_commit_share": 0.8107
+      },
+      "pull_requests": {
+        "prs_created": 5,
+        "prs_merged": 3,
+        "prs_closed_unmerged": 1,
+        "prs_currently_open": 1,
+        "median_lead_time_hours": 0.16,
+        "median_time_to_first_review_hours": null,
+        "author_prs_created": 5,
+        "author_prs_merged": 3,
+        "repository_prs_created": 5,
+        "repository_prs_merged": 3,
+        "by_month": {
+          "2026-07": {
+            "created": 5,
+            "merged": 3
+          }
+        }
+      },
+      "issues": {
+        "issues_created": 20,
+        "issues_closed": 17,
+        "issues_currently_open": 3,
+        "median_close_time_hours": null,
+        "non_person_authors_observed": {
+          "github-actions": 3
+        },
+        "capture_complete": true,
+        "by_month": null
+      },
+      "ci_cd": {
+        "workflow_runs_total": 119,
+        "workflow_runs_success": null,
+        "workflow_runs_failure": null,
+        "deployments": null,
+        "releases": null,
+        "tags": null
+      }
+    },
+    {
+      "repo_label": "Repository-06",
+      "category": "documentation",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": true,
+      "git": {
+        "total_commits": 18,
+        "author_commits": 11,
+        "active_days": 4,
+        "longest_active_streak": 2,
+        "median_commits_per_active_day": 2.5,
+        "raw_lines_added": 6487,
+        "raw_lines_deleted": 31,
+        "effective_lines_added": 6487,
+        "effective_lines_deleted": 31,
+        "excluded_lines_added": 0,
+        "excluded_lines_deleted": 0,
+        "files_changed": 96,
+        "commit_types": {
+          "chore": 2,
+          "feat": 8,
+          "fix": 1
+        },
+        "ai_agent_authored_commits_in_window": 0,
+        "ai_coauthored_person_commits_in_window": 6,
+        "first_commit_at_window": "2026-07-17T23:19:23+09:00",
+        "last_commit_at_window": "2026-08-06T09:01:30+09:00"
+      },
+      "languages": {
+        "Markdown": {
+          "effective_lines_added": 4714,
+          "effective_lines_deleted": 13,
+          "files_changed": 53
+        },
+        "Python": {
+          "effective_lines_added": 1096,
+          "effective_lines_deleted": 18,
+          "files_changed": 8
+        },
+        "YAML": {
+          "effective_lines_added": 673,
+          "effective_lines_deleted": 0,
+          "files_changed": 31
+        },
+        "Other": {
+          "effective_lines_added": 4,
+          "effective_lines_deleted": 0,
+          "files_changed": 4
+        }
+      },
+      "tech_domains": {
+        "backend": {
+          "effective_lines_added": 1096,
+          "effective_lines_deleted": 18,
+          "files_changed": 8
+        },
+        "AI / LLM": {
+          "effective_lines_added": 64,
+          "effective_lines_deleted": 0,
+          "files_changed": 2
+        },
+        "CI/CD": {
+          "effective_lines_added": 33,
+          "effective_lines_deleted": 0,
+          "files_changed": 1
+        }
+      },
+      "contributor_attribution": {
+        "contributor_count": 2,
+        "author_commits": 11,
+        "repository_total_commits_in_window": 18,
+        "author_commit_share": 0.6111
+      },
+      "pull_requests": {
+        "prs_created": 0,
+        "prs_merged": 0,
+        "prs_closed_unmerged": 0,
+        "prs_currently_open": 0,
+        "median_lead_time_hours": null,
+        "median_time_to_first_review_hours": null,
+        "author_prs_created": 0,
+        "author_prs_merged": 0,
+        "repository_prs_created": 0,
+        "repository_prs_merged": 0,
+        "by_month": {}
+      },
+      "issues": {
+        "issues_created": 0,
+        "issues_closed": 0,
+        "issues_currently_open": 0,
+        "median_close_time_hours": null,
+        "non_person_authors_observed": {},
+        "capture_complete": true,
+        "by_month": null
+      },
+      "ci_cd": {
+        "workflow_runs_total": null,
+        "workflow_runs_success": null,
+        "workflow_runs_failure": null,
+        "deployments": null,
+        "releases": null,
+        "tags": null
+      }
+    },
+    {
+      "repo_label": "Repository-05",
+      "category": "backend",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": true,
+      "git": {
+        "total_commits": 22,
+        "author_commits": 22,
+        "active_days": 6,
+        "longest_active_streak": 2,
+        "median_commits_per_active_day": 2.0,
+        "raw_lines_added": 6866,
+        "raw_lines_deleted": 1816,
+        "effective_lines_added": 6866,
+        "effective_lines_deleted": 1816,
+        "excluded_lines_added": 0,
+        "excluded_lines_deleted": 0,
+        "files_changed": 50,
+        "commit_types": {
+          "fix": 1,
+          "test": 2,
+          "feat": 12,
+          "chore": 6,
+          "other": 1
+        },
+        "ai_agent_authored_commits_in_window": 0,
+        "ai_coauthored_person_commits_in_window": 10,
+        "first_commit_at_window": "2026-06-26T01:47:51+09:00",
+        "last_commit_at_window": "2026-08-06T23:51:45+09:00"
+      },
+      "languages": {
+        "Python": {
+          "effective_lines_added": 5698,
+          "effective_lines_deleted": 1266,
+          "files_changed": 35
+        },
+        "HTML": {
+          "effective_lines_added": 702,
+          "effective_lines_deleted": 351,
+          "files_changed": 1
+        },
+        "Markdown": {
+          "effective_lines_added": 172,
+          "effective_lines_deleted": 86,
+          "files_changed": 3
+        },
+        "Other": {
+          "effective_lines_added": 140,
+          "effective_lines_deleted": 38,
+          "files_changed": 6
+        },
+        "Shell": {
+          "effective_lines_added": 79,
+          "effective_lines_deleted": 40,
+          "files_changed": 1
+        },
+        "YAML": {
+          "effective_lines_added": 43,
+          "effective_lines_deleted": 21,
+          "files_changed": 2
+        },
+        "Dockerfile": {
+          "effective_lines_added": 28,
+          "effective_lines_deleted": 14,
+          "files_changed": 1
+        },
+        "JSON": {
+          "effective_lines_added": 4,
+          "effective_lines_deleted": 0,
+          "files_changed": 1
+        }
+      },
+      "tech_domains": {
+        "backend": {
+          "effective_lines_added": 5509,
+          "effective_lines_deleted": 1223,
+          "files_changed": 32
+        },
+        "frontend": {
+          "effective_lines_added": 702,
+          "effective_lines_deleted": 351,
+          "files_changed": 1
+        },
+        "data pipeline": {
+          "effective_lines_added": 128,
+          "effective_lines_deleted": 43,
+          "files_changed": 2
+        },
+        "automation": {
+          "effective_lines_added": 79,
+          "effective_lines_deleted": 40,
+          "files_changed": 1
+        },
+        "AI / LLM": {
+          "effective_lines_added": 61,
+          "effective_lines_deleted": 0,
+          "files_changed": 1
+        },
+        "infrastructure": {
+          "effective_lines_added": 28,
+          "effective_lines_deleted": 14,
+          "files_changed": 1
+        }
+      },
+      "contributor_attribution": {
+        "contributor_count": 2,
+        "author_commits": 22,
+        "repository_total_commits_in_window": 22,
+        "author_commit_share": 1.0
+      },
+      "pull_requests": {
+        "prs_created": 20,
+        "prs_merged": 17,
+        "prs_closed_unmerged": 3,
+        "prs_currently_open": 0,
+        "median_lead_time_hours": 0.0,
+        "median_time_to_first_review_hours": null,
+        "author_prs_created": 20,
+        "author_prs_merged": 17,
+        "repository_prs_created": 20,
+        "repository_prs_merged": 17,
+        "by_month": {
+          "2026-07": {
+            "created": 6,
+            "merged": 5
+          },
+          "2026-08": {
+            "created": 14,
+            "merged": 12
+          }
+        }
+      },
+      "issues": {
+        "issues_created": 39,
+        "issues_closed": 21,
+        "issues_currently_open": 18,
+        "median_close_time_hours": null,
+        "non_person_authors_observed": {
+          "<redacted>": 2
+        },
+        "capture_complete": true,
+        "by_month": null
+      },
+      "ci_cd": {
+        "workflow_runs_total": 0,
+        "workflow_runs_success": null,
+        "workflow_runs_failure": null,
+        "deployments": null,
+        "releases": null,
+        "tags": 0
+      }
+    },
+    {
+      "repo_label": "Repository-01",
+      "category": "infrastructure",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": true,
+      "git": {
+        "total_commits": 332,
+        "author_commits": 237,
+        "active_days": 60,
+        "longest_active_streak": 52,
+        "median_commits_per_active_day": 1.5,
+        "raw_lines_added": 66580,
+        "raw_lines_deleted": 20955,
+        "effective_lines_added": 49728,
+        "effective_lines_deleted": 7169,
+        "excluded_lines_added": 16852,
+        "excluded_lines_deleted": 13786,
+        "files_changed": 416,
+        "commit_types": {
+          "fix": 40,
+          "feat": 66,
+          "chore": 94,
+          "docs": 18,
+          "test": 5,
+          "refactor": 10,
+          "perf": 1,
+          "ci": 3
+        },
+        "ai_agent_authored_commits_in_window": 86,
+        "ai_coauthored_person_commits_in_window": 172,
+        "first_commit_at_window": "2026-05-03T23:37:35+09:00",
+        "last_commit_at_window": "2026-08-05T22:05:06+09:00"
+      },
+      "languages": {
+        "Markdown": {
+          "effective_lines_added": 19813,
+          "effective_lines_deleted": 1976,
+          "files_changed": 148
+        },
+        "Python": {
+          "effective_lines_added": 10616,
+          "effective_lines_deleted": 1756,
+          "files_changed": 69
+        },
+        "JavaScript": {
+          "effective_lines_added": 6285,
+          "effective_lines_deleted": 704,
+          "files_changed": 33
+        },
+        "YAML": {
+          "effective_lines_added": 5787,
+          "effective_lines_deleted": 970,
+          "files_changed": 69
+        },
+        "Shell": {
+          "effective_lines_added": 3407,
+          "effective_lines_deleted": 152,
+          "files_changed": 39
+        },
+        "JSON": {
+          "effective_lines_added": 2141,
+          "effective_lines_deleted": 1081,
+          "files_changed": 17
+        },
+        "Other": {
+          "effective_lines_added": 984,
+          "effective_lines_deleted": 165,
+          "files_changed": 33
+        },
+        "HTML": {
+          "effective_lines_added": 351,
+          "effective_lines_deleted": 351,
+          "files_changed": 1
+        },
+        "Jupyter": {
+          "effective_lines_added": 283,
+          "effective_lines_deleted": 0,
+          "files_changed": 1
+        },
+        "Dockerfile": {
+          "effective_lines_added": 26,
+          "effective_lines_deleted": 14,
+          "files_changed": 2
+        },
+        "TOML": {
+          "effective_lines_added": 35,
+          "effective_lines_deleted": 0,
+          "files_changed": 2
+        }
+      },
+      "tech_domains": {
+        "backend": {
+          "effective_lines_added": 9420,
+          "effective_lines_deleted": 1641,
+          "files_changed": 61
+        },
+        "frontend": {
+          "effective_lines_added": 6636,
+          "effective_lines_deleted": 1055,
+          "files_changed": 34
+        },
+        "CI/CD": {
+          "effective_lines_added": 2710,
+          "effective_lines_deleted": 895,
+          "files_changed": 32
+        },
+        "automation": {
+          "effective_lines_added": 3407,
+          "effective_lines_deleted": 152,
+          "files_changed": 39
+        },
+        "data pipeline": {
+          "effective_lines_added": 934,
+          "effective_lines_deleted": 92,
+          "files_changed": 8
+        },
+        "AI / LLM": {
+          "effective_lines_added": 904,
+          "effective_lines_deleted": 41,
+          "files_changed": 3
+        },
+        "infrastructure": {
+          "effective_lines_added": 319,
+          "effective_lines_deleted": 16,
+          "files_changed": 5
+        }
+      },
+      "contributor_attribution": {
+        "contributor_count": 6,
+        "author_commits": 237,
+        "repository_total_commits_in_window": 332,
+        "author_commit_share": 0.7139
+      },
+      "pull_requests": {
+        "prs_created": 92,
+        "prs_merged": 71,
+        "prs_closed_unmerged": 19,
+        "prs_currently_open": 2,
+        "median_lead_time_hours": 0.32,
+        "median_time_to_first_review_hours": null,
+        "author_prs_created": 92,
+        "author_prs_merged": 71,
+        "repository_prs_created": 92,
+        "repository_prs_merged": 71,
+        "by_month": {
+          "2026-06": {
+            "created": 28,
+            "merged": 17
+          },
+          "2026-07": {
+            "created": 49,
+            "merged": 41
+          },
+          "2026-08": {
+            "created": 15,
+            "merged": 13
+          }
+        }
+      },
+      "issues": {
+        "issues_created": 581,
+        "issues_closed": 484,
+        "issues_currently_open": 97,
+        "median_close_time_hours": null,
+        "non_person_authors_observed": {},
+        "capture_complete": false,
+        "by_month": null
+      },
+      "ci_cd": {
+        "workflow_runs_total": 3017,
+        "workflow_runs_success": null,
+        "workflow_runs_failure": null,
+        "deployments": null,
+        "releases": null,
+        "tags": 0
+      }
+    },
+    {
+      "repo_label": "Repository-02",
+      "category": "infrastructure",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": true,
+      "git": {
+        "total_commits": 196,
+        "author_commits": 193,
+        "active_days": 31,
+        "longest_active_streak": 6,
+        "median_commits_per_active_day": 3,
+        "raw_lines_added": 83663,
+        "raw_lines_deleted": 1725,
+        "effective_lines_added": 82021,
+        "effective_lines_deleted": 1725,
+        "excluded_lines_added": 1642,
+        "excluded_lines_deleted": 0,
+        "files_changed": 415,
+        "commit_types": {
+          "feat": 91,
+          "fix": 47,
+          "chore": 14,
+          "other": 3,
+          "docs": 24,
+          "test": 5,
+          "revert": 1,
+          "ci": 8
+        },
+        "ai_agent_authored_commits_in_window": 3,
+        "ai_coauthored_person_commits_in_window": 140,
+        "first_commit_at_window": "2026-06-26T23:29:08+09:00",
+        "last_commit_at_window": "2026-08-05T22:06:55+09:00"
+      },
+      "languages": {
+        "YAML": {
+          "effective_lines_added": 38751,
+          "effective_lines_deleted": 609,
+          "files_changed": 75
+        },
+        "Python": {
+          "effective_lines_added": 16534,
+          "effective_lines_deleted": 516,
+          "files_changed": 102
+        },
+        "Markdown": {
+          "effective_lines_added": 14706,
+          "effective_lines_deleted": 460,
+          "files_changed": 88
+        },
+        "Shell": {
+          "effective_lines_added": 5870,
+          "effective_lines_deleted": 50,
+          "files_changed": 58
+        },
+        "JSON": {
+          "effective_lines_added": 3425,
+          "effective_lines_deleted": 7,
+          "files_changed": 17
+        },
+        "Other": {
+          "effective_lines_added": 1014,
+          "effective_lines_deleted": 13,
+          "files_changed": 54
+        },
+        "HCL/Terraform": {
+          "effective_lines_added": 607,
+          "effective_lines_deleted": 47,
+          "files_changed": 5
+        },
+        "JavaScript": {
+          "effective_lines_added": 419,
+          "effective_lines_deleted": 0,
+          "files_changed": 6
+        },
+        "TypeScript": {
+          "effective_lines_added": 319,
+          "effective_lines_deleted": 0,
+          "files_changed": 2
+        },
+        "Makefile": {
+          "effective_lines_added": 150,
+          "effective_lines_deleted": 10,
+          "files_changed": 1
+        },
+        "SQL": {
+          "effective_lines_added": 149,
+          "effective_lines_deleted": 0,
+          "files_changed": 2
+        },
+        "TOML": {
+          "effective_lines_added": 48,
+          "effective_lines_deleted": 5,
+          "files_changed": 3
+        },
+        "Dockerfile": {
+          "effective_lines_added": 29,
+          "effective_lines_deleted": 8,
+          "files_changed": 1
+        }
+      },
+      "tech_domains": {
+        "backend": {
+          "effective_lines_added": 15145,
+          "effective_lines_deleted": 508,
+          "files_changed": 88
+        },
+        "automation": {
+          "effective_lines_added": 5870,
+          "effective_lines_deleted": 50,
+          "files_changed": 58
+        },
+        "CI/CD": {
+          "effective_lines_added": 2778,
+          "effective_lines_deleted": 489,
+          "files_changed": 19
+        },
+        "AI / LLM": {
+          "effective_lines_added": 1643,
+          "effective_lines_deleted": 14,
+          "files_changed": 18
+        },
+        "infrastructure": {
+          "effective_lines_added": 786,
+          "effective_lines_deleted": 65,
+          "files_changed": 7
+        },
+        "frontend": {
+          "effective_lines_added": 738,
+          "effective_lines_deleted": 0,
+          "files_changed": 8
+        },
+        "database": {
+          "effective_lines_added": 149,
+          "effective_lines_deleted": 0,
+          "files_changed": 2
+        },
+        "data pipeline": {
+          "effective_lines_added": 112,
+          "effective_lines_deleted": 0,
+          "files_changed": 1
+        }
+      },
+      "contributor_attribution": {
+        "contributor_count": 4,
+        "author_commits": 193,
+        "repository_total_commits_in_window": 196,
+        "author_commit_share": 0.9847
+      },
+      "pull_requests": {
+        "prs_created": 160,
+        "prs_merged": 128,
+        "prs_closed_unmerged": 31,
+        "prs_currently_open": 1,
+        "median_lead_time_hours": 0.92,
+        "median_time_to_first_review_hours": null,
+        "author_prs_created": 160,
+        "author_prs_merged": 128,
+        "repository_prs_created": 160,
+        "repository_prs_merged": 128,
+        "by_month": {
+          "2026-06": {
+            "created": 15,
+            "merged": 10
+          },
+          "2026-07": {
+            "created": 93,
+            "merged": 63
+          },
+          "2026-08": {
+            "created": 52,
+            "merged": 55
+          }
+        }
+      },
+      "issues": {
+        "issues_created": 240,
+        "issues_closed": 207,
+        "issues_currently_open": 33,
+        "median_close_time_hours": null,
+        "non_person_authors_observed": {},
+        "capture_complete": false,
+        "by_month": null
+      },
+      "ci_cd": {
+        "workflow_runs_total": 1789,
+        "workflow_runs_success": null,
+        "workflow_runs_failure": null,
+        "deployments": null,
+        "releases": 0,
+        "tags": 0
+      }
+    },
+    {
+      "repo_label": "Repository-04",
+      "category": "automation",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": true,
+      "git": {
+        "total_commits": 31,
+        "author_commits": 31,
+        "active_days": 15,
+        "longest_active_streak": 3,
+        "median_commits_per_active_day": 2,
+        "raw_lines_added": 8746,
+        "raw_lines_deleted": 439,
+        "effective_lines_added": 8746,
+        "effective_lines_deleted": 439,
+        "excluded_lines_added": 0,
+        "excluded_lines_deleted": 0,
+        "files_changed": 109,
+        "commit_types": {
+          "chore": 6,
+          "feat": 16,
+          "fix": 4,
+          "test": 1,
+          "docs": 3,
+          "ci": 1
+        },
+        "ai_agent_authored_commits_in_window": 0,
+        "ai_coauthored_person_commits_in_window": 25,
+        "first_commit_at_window": "2026-06-19T23:53:57+09:00",
+        "last_commit_at_window": "2026-08-06T23:34:29+09:00"
+      },
+      "languages": {
+        "Python": {
+          "effective_lines_added": 6829,
+          "effective_lines_deleted": 394,
+          "files_changed": 68
+        },
+        "Markdown": {
+          "effective_lines_added": 990,
+          "effective_lines_deleted": 27,
+          "files_changed": 11
+        },
+        "Other": {
+          "effective_lines_added": 668,
+          "effective_lines_deleted": 0,
+          "files_changed": 15
+        },
+        "YAML": {
+          "effective_lines_added": 162,
+          "effective_lines_deleted": 16,
+          "files_changed": 2
+        },
+        "TOML": {
+          "effective_lines_added": 87,
+          "effective_lines_deleted": 2,
+          "files_changed": 1
+        },
+        "JSON": {
+          "effective_lines_added": 10,
+          "effective_lines_deleted": 0,
+          "files_changed": 1
+        }
+      },
+      "tech_domains": {
+        "backend": {
+          "effective_lines_added": 6430,
+          "effective_lines_deleted": 392,
+          "files_changed": 66
+        },
+        "AI / LLM": {
+          "effective_lines_added": 442,
+          "effective_lines_deleted": 2,
+          "files_changed": 3
+        },
+        "CI/CD": {
+          "effective_lines_added": 162,
+          "effective_lines_deleted": 16,
+          "files_changed": 2
+        }
+      },
+      "contributor_attribution": {
+        "contributor_count": 2,
+        "author_commits": 31,
+        "repository_total_commits_in_window": 31,
+        "author_commit_share": 1.0
+      },
+      "pull_requests": {
+        "prs_created": 34,
+        "prs_merged": 20,
+        "prs_closed_unmerged": 11,
+        "prs_currently_open": 3,
+        "median_lead_time_hours": 0.3,
+        "median_time_to_first_review_hours": null,
+        "author_prs_created": 34,
+        "author_prs_merged": 20,
+        "repository_prs_created": 34,
+        "repository_prs_merged": 20,
+        "by_month": {
+          "2026-07": {
+            "created": 26,
+            "merged": 13
+          },
+          "2026-08": {
+            "created": 8,
+            "merged": 7
+          }
+        }
+      },
+      "issues": {
+        "issues_created": 32,
+        "issues_closed": 31,
+        "issues_currently_open": 1,
+        "median_close_time_hours": null,
+        "non_person_authors_observed": {},
+        "capture_complete": true,
+        "by_month": null
+      },
+      "ci_cd": {
+        "workflow_runs_total": 114,
+        "workflow_runs_success": null,
+        "workflow_runs_failure": null,
+        "deployments": null,
+        "releases": null,
+        "tags": null
+      }
+    },
+    {
+      "repo_label": "Repository-09",
+      "category": "product",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-10",
+      "category": "automation",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-07",
+      "category": "frontend",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": true,
+      "git": {
+        "total_commits": 11,
+        "author_commits": 11,
+        "active_days": 2,
+        "longest_active_streak": 1,
+        "median_commits_per_active_day": 5.5,
+        "raw_lines_added": 7300,
+        "raw_lines_deleted": 81,
+        "effective_lines_added": 704,
+        "effective_lines_deleted": 81,
+        "excluded_lines_added": 6596,
+        "excluded_lines_deleted": 0,
+        "files_changed": 24,
+        "commit_types": {
+          "chore": 6,
+          "feat": 2,
+          "other": 2,
+          "docs": 1
+        },
+        "ai_agent_authored_commits_in_window": 0,
+        "ai_coauthored_person_commits_in_window": 3,
+        "first_commit_at_window": "2026-04-19T09:51:29+09:00",
+        "last_commit_at_window": "2026-08-02T20:33:08+09:00"
+      },
+      "languages": {
+        "TypeScript": {
+          "effective_lines_added": 387,
+          "effective_lines_deleted": 59,
+          "files_changed": 5
+        },
+        "Markdown": {
+          "effective_lines_added": 95,
+          "effective_lines_deleted": 22,
+          "files_changed": 3
+        },
+        "JSON": {
+          "effective_lines_added": 69,
+          "effective_lines_deleted": 0,
+          "files_changed": 3
+        },
+        "YAML": {
+          "effective_lines_added": 47,
+          "effective_lines_deleted": 0,
+          "files_changed": 1
+        },
+        "Other": {
+          "effective_lines_added": 46,
+          "effective_lines_deleted": 0,
+          "files_changed": 6
+        },
+        "CSS": {
+          "effective_lines_added": 26,
+          "effective_lines_deleted": 0,
+          "files_changed": 1
+        },
+        "JavaScript": {
+          "effective_lines_added": 25,
+          "effective_lines_deleted": 0,
+          "files_changed": 2
+        },
+        "TOML": {
+          "effective_lines_added": 9,
+          "effective_lines_deleted": 0,
+          "files_changed": 1
+        }
+      },
+      "tech_domains": {
+        "frontend": {
+          "effective_lines_added": 438,
+          "effective_lines_deleted": 59,
+          "files_changed": 8
+        },
+        "CI/CD": {
+          "effective_lines_added": 47,
+          "effective_lines_deleted": 0,
+          "files_changed": 1
+        }
+      },
+      "contributor_attribution": {
+        "contributor_count": 2,
+        "author_commits": 11,
+        "repository_total_commits_in_window": 11,
+        "author_commit_share": 1.0
+      },
+      "pull_requests": {
+        "prs_created": 1,
+        "prs_merged": 0,
+        "prs_closed_unmerged": 0,
+        "prs_currently_open": 1,
+        "median_lead_time_hours": null,
+        "median_time_to_first_review_hours": null,
+        "author_prs_created": 1,
+        "author_prs_merged": 0,
+        "repository_prs_created": 1,
+        "repository_prs_merged": 0,
+        "by_month": {
+          "2026-08": {
+            "created": 1,
+            "merged": 0
+          }
+        }
+      },
+      "issues": {
+        "issues_created": 2,
+        "issues_closed": 0,
+        "issues_currently_open": 2,
+        "median_close_time_hours": null,
+        "non_person_authors_observed": {},
+        "capture_complete": true,
+        "by_month": null
+      },
+      "ci_cd": {
+        "workflow_runs_total": null,
+        "workflow_runs_success": null,
+        "workflow_runs_failure": null,
+        "deployments": null,
+        "releases": null,
+        "tags": null
+      }
+    },
+    {
+      "repo_label": "Repository-08",
+      "category": "product",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": true,
+      "git": {
+        "total_commits": 5,
+        "author_commits": 5,
+        "active_days": 3,
+        "longest_active_streak": 2,
+        "median_commits_per_active_day": 1,
+        "raw_lines_added": 1169,
+        "raw_lines_deleted": 63,
+        "effective_lines_added": 1169,
+        "effective_lines_deleted": 63,
+        "excluded_lines_added": 0,
+        "excluded_lines_deleted": 0,
+        "files_changed": 18,
+        "commit_types": {
+          "chore": 2,
+          "test": 1,
+          "docs": 1,
+          "feat": 1
+        },
+        "ai_agent_authored_commits_in_window": 0,
+        "ai_coauthored_person_commits_in_window": 4,
+        "first_commit_at_window": "2026-08-01T23:30:40+09:00",
+        "last_commit_at_window": "2026-08-04T23:24:45+09:00"
+      },
+      "languages": {
+        "Python": {
+          "effective_lines_added": 869,
+          "effective_lines_deleted": 0,
+          "files_changed": 10
+        },
+        "YAML": {
+          "effective_lines_added": 106,
+          "effective_lines_deleted": 63,
+          "files_changed": 3
+        },
+        "Markdown": {
+          "effective_lines_added": 163,
+          "effective_lines_deleted": 0,
+          "files_changed": 3
+        },
+        "TOML": {
+          "effective_lines_added": 23,
+          "effective_lines_deleted": 0,
+          "files_changed": 1
+        },
+        "Other": {
+          "effective_lines_added": 8,
+          "effective_lines_deleted": 0,
+          "files_changed": 1
+        }
+      },
+      "tech_domains": {
+        "backend": {
+          "effective_lines_added": 869,
+          "effective_lines_deleted": 0,
+          "files_changed": 10
+        },
+        "CI/CD": {
+          "effective_lines_added": 35,
+          "effective_lines_deleted": 3,
+          "files_changed": 1
+        }
+      },
+      "contributor_attribution": {
+        "contributor_count": 1,
+        "author_commits": 5,
+        "repository_total_commits_in_window": 5,
+        "author_commit_share": 1.0
+      },
+      "pull_requests": {
+        "prs_created": 1,
+        "prs_merged": 0,
+        "prs_closed_unmerged": 0,
+        "prs_currently_open": 1,
+        "median_lead_time_hours": null,
+        "median_time_to_first_review_hours": null,
+        "author_prs_created": 1,
+        "author_prs_merged": 0,
+        "repository_prs_created": 1,
+        "repository_prs_merged": 0,
+        "by_month": {
+          "2026-08": {
+            "created": 1,
+            "merged": 0
+          }
+        }
+      },
+      "issues": {
+        "issues_created": 5,
+        "issues_closed": 5,
+        "issues_currently_open": 0,
+        "median_close_time_hours": null,
+        "non_person_authors_observed": {},
+        "capture_complete": true,
+        "by_month": null
+      },
+      "ci_cd": {
+        "workflow_runs_total": null,
+        "workflow_runs_success": null,
+        "workflow_runs_failure": null,
+        "deployments": null,
+        "releases": null,
+        "tags": null
+      }
+    },
+    {
+      "repo_label": "Repository-11",
+      "category": "ai_llm",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-12",
+      "category": "other",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-13",
+      "category": "automation",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-14",
+      "category": "automation",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-15",
+      "category": "other",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-16",
+      "category": "ai_llm",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-17",
+      "category": "automation",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-18",
+      "category": "data_pipeline",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-19",
+      "category": "data_pipeline",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-20",
+      "category": "infrastructure",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-21",
+      "category": "infrastructure",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-22",
+      "category": "infrastructure",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-23",
+      "category": "other",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-24",
+      "category": "other",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-25",
+      "category": "other",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-26",
+      "category": "other",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-27",
+      "category": "other",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-28",
+      "category": "backend",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-29",
+      "category": "ai_llm",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-30",
+      "category": "documentation",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-31",
+      "category": "data_pipeline",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-32",
+      "category": "other",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-33",
+      "category": "data_pipeline",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-34",
+      "category": "infrastructure",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-35",
+      "category": "backend",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-36",
+      "category": "product",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-37",
+      "category": "infrastructure",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-38",
+      "category": "data_pipeline",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-39",
+      "category": "backend",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-40",
+      "category": "other",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-41",
+      "category": "other",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-42",
+      "category": "other",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-43",
+      "category": "other",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-44",
+      "category": "other",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-45",
+      "category": "other",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-46",
+      "category": "other",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-47",
+      "category": "other",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-48",
+      "category": "other",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-49",
+      "category": "other",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-50",
+      "category": "other",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-51",
+      "category": "other",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-52",
+      "category": "other",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-53",
+      "category": "other",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-54",
+      "category": "data_pipeline",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-55",
+      "category": "documentation",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-56",
+      "category": "backend",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-57",
+      "category": "automation",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-58",
+      "category": "experiment",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-59",
+      "category": "automation",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-60",
+      "category": "documentation",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-61",
+      "category": "documentation",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-62",
+      "category": "ai_llm",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-63",
+      "category": "documentation",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-64",
+      "category": "automation",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-65",
+      "category": "automation",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-66",
+      "category": "experiment",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-67",
+      "category": "automation",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-68",
+      "category": "automation",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-69",
+      "category": "automation",
+      "visibility": "public",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-70",
+      "category": "automation",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-71",
+      "category": "other",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-72",
+      "category": "backend",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-73",
+      "category": "automation",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-74",
+      "category": "automation",
+      "visibility": "private",
+      "archived": true,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-75",
+      "category": "data_pipeline",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-76",
+      "category": "backend",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-77",
+      "category": "other",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-78",
+      "category": "infrastructure",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-79",
+      "category": "frontend",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-80",
+      "category": "backend",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-81",
+      "category": "experiment",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-82",
+      "category": "ai_llm",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-83",
+      "category": "infrastructure",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-84",
+      "category": "experiment",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-85",
+      "category": "ai_llm",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-86",
+      "category": "ai_llm",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-87",
+      "category": "ai_llm",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-88",
+      "category": "automation",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-89",
+      "category": "other",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-90",
+      "category": "product",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-91",
+      "category": "experiment",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-92",
+      "category": "frontend",
+      "visibility": "public",
+      "archived": false,
+      "fork": true,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-93",
+      "category": "data_pipeline",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-94",
+      "category": "frontend",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-95",
+      "category": "documentation",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-96",
+      "category": "data_pipeline",
+      "visibility": "public",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-97",
+      "category": "data_pipeline",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-98",
+      "category": "other",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": true,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-99",
+      "category": "other",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": false,
+      "deep_analyzed": false
+    },
+    {
+      "repo_label": "Repository-100",
+      "category": "other",
+      "visibility": "private",
+      "archived": false,
+      "fork": false,
+      "active_in_window": false,
+      "deep_analyzed": false
+    }
+  ],
+  "data_quality": {
+    "obtained": [
+      "Per-repo Git commit history (default branch HEAD, no-merges) for 8 deep repos, full clones",
+      "Author-attributed commits, active days, streaks (author-date, Asia/Tokyo)",
+      "Raw and effective LOC churn with documented exclusion ruleset",
+      "Conventional-commit type classification",
+      "Language + tech-domain breakdown from file extensions/paths",
+      "Contributor attribution incl. AI-agent-authored + AI co-authored commits",
+      "PR created/merged/closed-unmerged/open + median lead time (created->merged), by month",
+      "Issue totals (created/open/closed) per deep repo",
+      "GitHub Actions workflow-run totals per deep repo",
+      "Full repository inventory (100 repos: visibility, archived, fork, last push)"
+    ],
+    "not_obtained": [
+      "default_branch / first_commit / churn for non-deep repos (not cloned)",
+      "PR median_time_to_first_review (per-PR review enumeration not collected)",
+      "Issue median_close_time and issue monthly series for high-volume repos (240/581 issues not fully paginated)",
+      "Workflow-run success/failure split (only non-representative recent 30-run sample available)",
+      "Deployments (GitHub Deployments API not exposed by available tooling)",
+      "External CI/CD (Cloud Build etc.) — not inspected, not inferred"
+    ],
+    "data_quality_notes": [
+      "PR list 'merged' boolean unreliable; merge determined by non-null merged_at.",
+      "Commits counted on the default branch (git log HEAD, no-merges); work living only on unmerged branches is intentionally excluded (conservative basis).",
+      "Person identity merged conservatively across the subject's configured git emails and name variants (incl. a name typo); see identity.json and per-repo person_identity_variants.",
+      "Deep-analysis set is a documented subset (8 of 100) selected by activity + domain coverage; expansion blocked by per-repo access-approval limits during collection. AI/LLM and data-pipeline categories are represented in the inventory but not in the deep churn set.",
+      "A secondary GitHub account was observed authoring 2 issues in one public repo; not merged into the person identity (unverified)."
+    ],
+    "changed_collection_logic": [
+      "No prior work-analysis-combined.json existed in-repo; analyzer built fresh.",
+      "Added explicit AI-agent-authored and AI-co-authored commit counting (objective AI-assisted-dev signal) beyond a plain author/bot split.",
+      "Switched commit-record delimiter off ASCII record-separator (0x1E) because Python str.splitlines() splits on it, which had zeroed churn on first pass."
+    ]
+  }
+}

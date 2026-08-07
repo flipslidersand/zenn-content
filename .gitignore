@@ -1,4 +1,17 @@
 node_modules/
 .DS_Store
+__pycache__/
+*.pyc
 db/*.db-wal
 db/*.db-shm
+
+# Development Activity Report — local-only inputs & internal outputs.
+# These embed the subject's git identities and private repository names, so
+# they are deliberately kept out of this public repository. Regenerate with
+# scripts/dev-activity/ (see reports/dev-activity/README.md).
+scripts/dev-activity/identity.json
+scripts/dev-activity/report_config.json
+reports/dev-activity/development-activity-raw.json
+reports/dev-activity/development-activity-summary.csv
+reports/dev-activity/development-activity-report.md
+reports/dev-activity/anonymization-map.INTERNAL.json

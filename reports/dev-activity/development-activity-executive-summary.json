@@ -1,0 +1,70 @@
+{
+  "analysis_period": {
+    "start": "2026-04-01",
+    "end": "2026-08-07"
+  },
+  "collected_at": "2026-08-07T13:30:00+09:00",
+  "timezone": "Asia/Tokyo",
+  "headline_metrics": {
+    "repositories_total": 100,
+    "repositories_active_in_window": 98,
+    "repositories_deep_analyzed": 8,
+    "author_commits_deep": 647,
+    "active_days_deep": 62,
+    "longest_active_streak_days": 53,
+    "prs_created_deep": 313,
+    "prs_merged_deep": 239,
+    "issues_created_deep": 919,
+    "workflow_runs_deep": 5039,
+    "effective_lines_added_deep": 173231,
+    "effective_lines_deleted_deep": 11923
+  },
+  "delivery_funnel_observed": "Issue -> PR -> Merge -> CI run observed end-to-end in deep repos (largest infrastructure repo alone: 240 issues, 160 PRs, 1789 workflow runs).",
+  "domain_breadth": [
+    "ai_llm",
+    "automation",
+    "backend",
+    "data_pipeline",
+    "documentation",
+    "experiment",
+    "frontend",
+    "infrastructure",
+    "other",
+    "product"
+  ],
+  "top_languages": [
+    {
+      "language": "Markdown",
+      "effective_churn": 59601
+    },
+    {
+      "language": "YAML",
+      "effective_churn": 47922
+    },
+    {
+      "language": "Python",
+      "effective_churn": 45689
+    },
+    {
+      "language": "Shell",
+      "effective_churn": 9598
+    },
+    {
+      "language": "JavaScript",
+      "effective_churn": 8239
+    },
+    {
+      "language": "JSON",
+      "effective_churn": 6773
+    }
+  ],
+  "ai_assisted_development_signals": {
+    "ai_agent_authored_commits_deep": 89,
+    "ai_coauthored_person_commits_deep": 385,
+    "note": "Objective git signals only (author=Claude/anthropic, or Co-Authored-By AI trailer)."
+  },
+  "caveats": [
+    "Metrics summed over 8 deep-analyzed repos; 97-repo inventory for breadth only.",
+    "No estimates; unavailable fields are null. See raw report data_quality."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "_note": "Copy to report_config.json (gitignored). Points the aggregator at collected inputs and the deep-repo working set.",
+  "scratchpad_dir": "/path/to/scratchpad-with/git-json-and-gh-data",
+  "out_dir": "./reports/dev-activity",
+  "period_start": "2026-04-01",
+  "period_end": "2026-08-07",
+  "collected_at": "2026-08-07T13:30:00+09:00",
+  "timezone": "Asia/Tokyo",
+  "deep_repos": ["repo-a", "repo-b"],
+  "category_rules": [["backend", ["engine", "-server", "api-"]], ["frontend", ["-web", "-ui"]]],
+  "personal_markers": ["-log", "dotfiles"]
+}
