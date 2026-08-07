@@ -8,16 +8,16 @@
   "headline_metrics": {
     "repositories_total": 100,
     "repositories_active_in_window": 98,
-    "repositories_deep_analyzed": 8,
-    "author_commits_deep": 647,
-    "active_days_deep": 62,
+    "repositories_deep_analyzed": 24,
+    "author_commits_deep": 810,
+    "active_days_deep": 69,
     "longest_active_streak_days": 53,
     "prs_created_deep": 313,
     "prs_merged_deep": 239,
     "issues_created_deep": 919,
     "workflow_runs_deep": 5039,
-    "effective_lines_added_deep": 173231,
-    "effective_lines_deleted_deep": 11923
+    "effective_lines_added_deep": 213771,
+    "effective_lines_deleted_deep": 14882
   },
   "delivery_funnel_observed": "Issue -> PR -> Merge -> CI run observed end-to-end in deep repos (largest infrastructure repo alone: 240 issues, 160 PRs, 1789 workflow runs).",
   "domain_breadth": [
@@ -35,32 +35,32 @@
   "top_languages": [
     {
       "language": "Markdown",
-      "effective_churn": 59601
-    },
-    {
-      "language": "YAML",
-      "effective_churn": 47922
+      "effective_churn": 68659
     },
     {
       "language": "Python",
-      "effective_churn": 45689
+      "effective_churn": 53491
     },
     {
-      "language": "Shell",
-      "effective_churn": 9598
+      "language": "YAML",
+      "effective_churn": 49130
     },
     {
       "language": "JavaScript",
-      "effective_churn": 8239
+      "effective_churn": 12562
     },
     {
-      "language": "JSON",
-      "effective_churn": 6773
+      "language": "Rust",
+      "effective_churn": 10339
+    },
+    {
+      "language": "Shell",
+      "effective_churn": 10229
     }
   ],
   "ai_assisted_development_signals": {
     "ai_agent_authored_commits_deep": 89,
-    "ai_coauthored_person_commits_deep": 385,
+    "ai_coauthored_person_commits_deep": 489,
     "note": "Objective git signals only (author=Claude/anthropic, or Co-Authored-By AI trailer)."
   },
   "caveats": [
